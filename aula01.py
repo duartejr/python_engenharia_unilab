@@ -63,6 +63,3 @@ print np.var(A)
 print np.corrcoef(A,B)
 from scipy.stats import mode
 print mode(A)[0][0]
-
-#Aula 01 parte 4
-#Resolução de sistema de equações lineares
