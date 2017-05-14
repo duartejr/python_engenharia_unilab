@@ -1,23 +1,22 @@
+# -*- coding: utf-8 -*-
 """
-Demo of a simple plot with a custom dashed line.
-
-A Line object's ``set_dashes`` method allows you to specify dashes with
-a series of on/off lengths (in points).
+Exemplo simples de gráfico de linhas
 """
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 x = np.linspace(0, 10, 500)
-dashes = [10, 5, 100, 5]  # 10 points on, 5 off, 100 on, 5 off
+y1 = np.sin(x)
+y2 = np.cos(x)
 
-fig, ax = plt.subplots()
-line1, = ax.plot(x, np.sin(x), '--', linewidth=2,
-                 label='Dashes set retroactively')
-line1.set_dashes(dashes)
-
-line2, = ax.plot(x, -1 * np.sin(x), dashes=[30, 5, 10, 5],
-                 label='Dashes set proactively')
-
-ax.legend(loc='lower right')
+plt.plot(x,y1,'--',linewidth=2,color='k',label='sin(X)')
+plt.plot(x,y2,'-.',linewidth=2,color='r',label='cos(x)')
+plt.grid()
+plt.xlabel(u'Ângulo (rad)',fontsize=14)
+plt.ylabel('y',fontsize=14)
+plt.legend(loc='upper left')
+plt.title(u'Exemplo gráfico de linhas', fontsize=22, color='b')
+plt.xticks(range(0,11,1))
+plt.yticks(np.arange(-1,1.1,.25))
 plt.show()
